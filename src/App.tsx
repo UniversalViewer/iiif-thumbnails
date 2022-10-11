@@ -8,8 +8,6 @@ import { useControls } from "leva";
 import { useEffect } from "react";
 
 export default function App() {
-  // const [isPaged, setIsPaged] = useState(false);
-
   const [{ manifest, paged, viewingDirection, canvasIndex }, set] = useControls(
     () => ({
       manifest: {
