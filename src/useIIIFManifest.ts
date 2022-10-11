@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 // @ts-ignore
 import { loadManifest, parseManifest } from "manifesto.js/dist-umd/manifesto";
+import { ViewingHint } from "@iiif/vocabulary";
 
 export interface Options {
   thumbWidth: number;
@@ -20,7 +21,8 @@ const useIIIFManifest = (
       const sequence = manifest.getSequences()[0];
       const canvases = sequence.getCanvases();
       const thumbs = sequence.getThumbs(options.thumbWidth);
-      setValue({ manifest, sequence, canvases, thumbs });
+      const paged = sequence.getViewingHint() === ViewingHint.PAGED || manifest.isPagingEnabled();
+      setValue({ manifest, sequence, canvases, thumbs, paged });
     });
   }, [manifestId]);
   return value;

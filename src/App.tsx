@@ -5,8 +5,11 @@ import useIIIFManifest from "./useIIIFManifest";
 import { ViewingDirection, ViewingHint } from "@iiif/vocabulary";
 import { Canvas } from "manifesto.js";
 import { useControls } from "leva";
+import { useEffect } from "react";
 
 export default function App() {
+  // const [isPaged, setIsPaged] = useState(false);
+
   const [{ manifest, paged, viewingDirection, canvasIndex }, set] = useControls(
     () => ({
       manifest: {
@@ -14,10 +17,11 @@ export default function App() {
           "Non-paged at Start":
             "https://sessionpapers.is.ed.ac.uk/whiiif/resources/manifests/ADV-CampbellsColl_Vol_99-paged",
           "Non-paged at End":
-            "https://heaney0.ugent.be/custom_manifests/B_OB_MS685.json"
+            "https://heaney0.ugent.be/custom_manifests/B_OB_MS685.json",
+          "v2 manifest without viewingHint:paged": "https://adore.ugent.be/IIIF/manifests/archive.ugent.be:018970A2-B1E8-11DF-A2E0-A70579F64438",
         }
       },
-      paged: true,
+      paged: false,
       viewingDirection: {
         options: {
           "Left to Right": ViewingDirection.LEFT_TO_RIGHT,
@@ -33,7 +37,13 @@ export default function App() {
     })
   );
 
-  const { sequence, canvases, thumbs } = useIIIFManifest(manifest);
+  const { sequence, canvases, thumbs, paged: _paged } = useIIIFManifest(manifest);
+
+  useEffect(() => {
+    set({
+      paged: _paged
+    });
+  }, [_paged]);
 
   function getPagedIndices(): number[] {
     let indices: number[] = [];
