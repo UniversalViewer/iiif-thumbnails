@@ -1,2 +1,3 @@
 # iiif-thumbnails
-Created with CodeSandbox
+
+https://codesandbox.io/p/github/UniversalViewer/iiif-thumbnails
