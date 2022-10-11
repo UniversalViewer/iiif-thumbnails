@@ -22,7 +22,8 @@ const useIIIFManifest = (
       const canvases = sequence.getCanvases();
       const thumbs = sequence.getThumbs(options.thumbWidth);
       const paged = sequence.getViewingHint() === ViewingHint.PAGED || manifest.isPagingEnabled();
-      setValue({ manifest, sequence, canvases, thumbs, paged });
+      const viewingDirection = sequence.getViewingDirection() || manifest.getViewingDirection();
+      setValue({ manifest, sequence, canvases, thumbs, paged, viewingDirection });
     });
   }, [manifestId]);
   return value;

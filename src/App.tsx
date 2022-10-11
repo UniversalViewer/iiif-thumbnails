@@ -37,13 +37,14 @@ export default function App() {
     })
   );
 
-  const { sequence, canvases, thumbs, paged: _paged } = useIIIFManifest(manifest);
+  const { sequence, canvases, thumbs, paged: _paged, viewingDirection: _viewingDirection } = useIIIFManifest(manifest);
 
   useEffect(() => {
     set({
-      paged: _paged
+      paged: _paged,
+      viewingDirection: _viewingDirection,
     });
-  }, [_paged]);
+  }, [_paged, _viewingDirection]);
 
   function getPagedIndices(): number[] {
     let indices: number[] = [];
