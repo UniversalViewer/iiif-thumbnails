@@ -17,6 +17,7 @@ export default function App() {
           "Non-paged at End":
             "https://heaney0.ugent.be/custom-manifests/B_OB_MS685.json",
           "v2 manifest without viewingHint:paged": "https://adore.ugent.be/IIIF/manifests/archive.ugent.be:018970A2-B1E8-11DF-A2E0-A70579F64438",
+          "unpaged manifest": "https://digitalcollections-api.arts.ac.uk/iiif/objects/calm:CCAD/1/1",
         }
       },
       paged: false,
