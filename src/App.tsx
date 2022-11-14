@@ -16,8 +16,9 @@ export default function App() {
             "https://sessionpapers.is.ed.ac.uk/whiiif/resources/manifests/ADV-CampbellsColl_Vol_99-paged",
           "Non-paged at End":
             "https://heaney0.ugent.be/custom-manifests/B_OB_MS685.json",
-          "v2 manifest without viewingHint:paged": "https://adore.ugent.be/IIIF/manifests/archive.ugent.be:018970A2-B1E8-11DF-A2E0-A70579F64438",
+          "Presentation API v2 manifest without viewingHint:paged": "https://adore.ugent.be/IIIF/manifests/archive.ugent.be:018970A2-B1E8-11DF-A2E0-A70579F64438",
           "unpaged manifest": "https://digitalcollections-api.arts.ac.uk/iiif/objects/calm:CCAD/1/1",
+          "Image API v3 thumbnails": "https://lbiiif.riksarkivet.se/arkis!00147269/manifest",
         }
       },
       paged: false,
